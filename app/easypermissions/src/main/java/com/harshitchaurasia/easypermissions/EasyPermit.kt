@@ -1,5 +1,5 @@
 package com.harshitchaurasia.easypermissions
-import android.Manifest
+
 import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
@@ -7,30 +7,58 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-abstract class PermissionAbstract : ActivityCompat.OnRequestPermissionsResultCallback {
-    private val TAG = "EasyPermissions"
+/*
+        MIT License
+
+        Copyright (c) 2020 Harshit Chaurasia
+
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+
+        We welcome contributer : https://github.com/harshit0209/EasyPermit/
+ */
+abstract class EasyPermit : ActivityCompat.OnRequestPermissionsResultCallback {
+    val TAG = "EasyPermissions"
     private val RECORD_REQUEST_CODE = 101
 
-    fun jugaadAllPermissions_Automatically(activityContext: Context)
-    {
+    fun jugaadAllPermissionsAutomatically(activityContext: Context) {
         try {
 
 
-            var allP = allAvailiblePermisssions(activityContext)
-            if(allP[0].contains("nan"))
-            {
+            val allP = allAvailiblePermisssions(activityContext)
+            if (allP[0].contains("nan")) {
                 return
             }
-            setupPermissions(activityContext, allP)
+            checkAndGetPermissions(activityContext, allP)
+        } catch (e: java.lang.Exception) {
+            Log.d(TAG, "jugaad error send this report to developer[link]\n$e")
         }
-        catch (e:java.lang.Exception){Log.d(TAG,"jugaad error send this report to developer[link]\n$e")}
     }
-    public fun setupPermissions(activityContext: Context, permissions: Array<String>) {
+
+    private fun checkAndGetPermissions(
+        activityContext: Context,
+        arrayOfPermissions: Array<String>
+    ) {
         try {
 
 
             val askPermissions = ArrayList<String>()
-            for (permission in permissions) {
+            for (permission in arrayOfPermissions) {
                 val permissionState = ContextCompat.checkSelfPermission(
                     activityContext,
                     permission
@@ -42,8 +70,9 @@ abstract class PermissionAbstract : ActivityCompat.OnRequestPermissionsResultCal
                 Log.i(TAG, "Asking for Permission...")
                 makeRequest(activityContext, askPermissions.toTypedArray())
             }
+        } catch (e: java.lang.Exception) {
+            Log.i(TAG, "Error Code 3983\n$e")
         }
-        catch (e:java.lang.Exception){  Log.i(TAG, "Error Code 3983\n$e")}
     }
 
     private fun makeRequest(context: Context, permissions: Array<String>) {
@@ -55,7 +84,9 @@ abstract class PermissionAbstract : ActivityCompat.OnRequestPermissionsResultCal
                 permissions,
                 RECORD_REQUEST_CODE
             )
-        } catch (e:java.lang.Exception){  Log.i(TAG, "Error Code 3984\n$e")}
+        } catch (e: java.lang.Exception) {
+            Log.i(TAG, "Error Code 3984\n$e")
+        }
 
     }
 
@@ -77,10 +108,12 @@ abstract class PermissionAbstract : ActivityCompat.OnRequestPermissionsResultCal
                     }
                 }
             }
-        }catch (e:java.lang.Exception){  Log.i(TAG, "Error Code 3985\n$e")}
+        } catch (e: java.lang.Exception) {
+            Log.i(TAG, "Error Code 3985\n$e")
+        }
     }
-    fun allAvailiblePermisssions(activityContext: Context):Array<String>
-    {
+
+    private fun allAvailiblePermisssions(activityContext: Context): Array<String> {
         try {
 
 
@@ -93,7 +126,7 @@ abstract class PermissionAbstract : ActivityCompat.OnRequestPermissionsResultCal
                 val name = permissionGroup?.name
 //                  Log.d("AppLog", "permission group `$name`")
                 try {
-                    val permissions = pm.queryPermissionsByGroup(name, 0) ?: continue
+                    val permissions = pm.queryPermissionsByGroup(name!!, 0) ?: continue
                     for (permission in permissions) {
                         if (permission.name.contains("android") && permission.loadDescription(pm) != null) {
                             askPermissions.add(permission.name)
@@ -112,8 +145,9 @@ abstract class PermissionAbstract : ActivityCompat.OnRequestPermissionsResultCal
 //                  Log.d("AppLog", "-----")
             }
             return askPermissions.toTypedArray()
+        } catch (e: java.lang.Exception) {
+            Log.d(TAG, "Jugaad Error Code 5488\nPlease Report this to developer [link]\n $e")
         }
-        catch (e:java.lang.Exception){Log.d(TAG,"Jugaad Error Code 5488\nPlease Report this to developer [link]\n $e")}
         return arrayOf("nan")
     }
 }
