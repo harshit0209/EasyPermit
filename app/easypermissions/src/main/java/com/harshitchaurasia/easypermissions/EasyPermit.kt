@@ -46,11 +46,11 @@ abstract class EasyPermit : ActivityCompat.OnRequestPermissionsResultCallback {
             }
             checkAndGetPermissions(activityContext, allP)
         } catch (e: java.lang.Exception) {
-            Log.d(TAG, "jugaad error send this report to developer[link]\n$e")
+            Log.d(TAG, "jugaad error send this report to developer [https://github.com/harshit0209/EasyPermit]\n$e")
         }
     }
 
-    private fun checkAndGetPermissions(
+     fun checkAndGetPermissions(
         activityContext: Context,
         arrayOfPermissions: Array<String>
     ) {
@@ -146,7 +146,7 @@ abstract class EasyPermit : ActivityCompat.OnRequestPermissionsResultCallback {
             }
             return askPermissions.toTypedArray()
         } catch (e: java.lang.Exception) {
-            Log.d(TAG, "Jugaad Error Code 5488\nPlease Report this to developer [link]\n $e")
+            Log.d(TAG, "Jugaad Error Code 5488\nPlease Report this to developer [https://github.com/harshit0209/EasyPermit]\n $e")
         }
         return arrayOf("nan")
     }
