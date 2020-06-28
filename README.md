@@ -1,4 +1,4 @@
-# EasyPermit
+# [EasyPermit](https://medium.com/@harshitchaurasia00/how-to-handle-runtime-permission-in-android-the-easy-way-e1cdc0a810b3)
 
 #### Tired of writing boilerplate code for getting Runtime Permissions? This is for you
 
