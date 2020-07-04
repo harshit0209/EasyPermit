@@ -1,12 +1,13 @@
 # [EasyPermit](https://medium.com/@harshitchaurasia00/how-to-handle-runtime-permission-in-android-the-easy-way-e1cdc0a810b3)
 
 [<img src=https://badgen.net/badge/Repository/Jitpack/green>](https://jitpack.io) 
+[<img src=https://badgen.net/badge/Version/0.12/purple>](https://jitpack.io) 
 [<img src=https://badgen.net/badge/license/MIT/orange>](https://github.com/harshit0209/EasyPermit/blob/master/LICENSE) 
 [<img src= https://badgen.net/badge/Linkedin/harshit/blue>](https://www.linkedin.com/in/harshit-chaurasia-38a57016a/) 
  
 
 <img src= snapshot.gif>
-#### Tired of writing boilerplate code for getting Runtime Permissions? This is for you
+  Tired of writing boilerplate code for getting Runtime Permissions? This is for you
 
 #### Traditional methods for getting Runtime Permissions seems to be lengthy/laborious? This is for you
 
