@@ -3,8 +3,9 @@
 [<img src=https://badgen.net/badge/Repository/Jitpack/green>](https://jitpack.io) 
 [<img src=https://badgen.net/badge/license/MIT/orange>](https://github.com/harshit0209/EasyPermit/blob/master/LICENSE) 
 [<img src= https://badgen.net/badge/Linkedin/harshit/blue>](https://www.linkedin.com/in/harshit-chaurasia-38a57016a/) 
-[![Snapshot](https://github.com/harshit0209/EasyPermit/blob/master/easy-permit-demo.mp4)
+ 
 
+<img src= snapshot.gif>
 #### Tired of writing boilerplate code for getting Runtime Permissions? This is for you
 
 #### Traditional methods for getting Runtime Permissions seems to be lengthy/laborious? This is for you
