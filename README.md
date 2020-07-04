@@ -1,5 +1,9 @@
 # [EasyPermit](https://medium.com/@harshitchaurasia00/how-to-handle-runtime-permission-in-android-the-easy-way-e1cdc0a810b3)
 
+[<img src= https://badgen.net/badge/Contributions/Welcome/green>]() 
+[<img src=https://badgen.net/badge/license/MIT/orange>](https://github.com/harshit0209/EasyPermit/blob/master/LICENSE) 
+[<img src= https://badgen.net/badge/Linkedin/harshit/blue>](https://www.linkedin.com/in/harshit-chaurasia-38a57016a/) 
+
 #### Tired of writing boilerplate code for getting Runtime Permissions? This is for you
 
 #### Traditional methods for getting Runtime Permissions seems to be lengthy/laborious? This is for you
@@ -40,7 +44,7 @@ Example:
    
 ```
 #### 4. Add following code to MainActivity or any other Activty
-Example:
+Example:  
 ```
    val grantPermission: EasyPermit = InitPermissions()
         grantPermission.checkAndGetPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS,
